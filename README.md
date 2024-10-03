@@ -12,7 +12,7 @@ Las tareas requeridas son:
 
 1. **Cargar una base de datos desde un archivo:** Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado ".tar" a PostgreSQL.
 
-![carga_bbdd](./img/restore_001.jpg)
+![carga_bbdd](./img/restore_001.PNG)
 
 2. **Escribir consultas SQL:** Se han debido crear consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
  
