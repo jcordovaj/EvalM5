@@ -1,8 +1,8 @@
-# Evaluación final - módulo 5 - "sql/pgsql"
+# Evaluación final - Módulo 5 - "SQL/PGSQL"
 
 ## Introducción
 
-El presente trabajo es parte de los requisitos de cumplimiento al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4.
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada "dvdrental".
 
 ## Análisis del requerimiento
 
@@ -10,14 +10,17 @@ Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, prov
 
 Las tareas requeridas son:
 
-1. Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado ".tar" a PostgreSQL.
+1. **Cargar una base de datos desde un archivo:** Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado ".tar" a PostgreSQL.
 
 ![carga_bbdd](./img/restore_001.jpg)
 
-Escribir consultas SQL: Crear consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar) y consultas más complejas para obtener información específica.
-Comprender el modelo relacional: Analizar la estructura de la base de datos y las relaciones entre las tablas.
-Documentar la base de datos: Crear un diccionario de datos que describa las tablas y columnas.
+2. **Escribir consultas SQL:** Se han debido crear consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+ 
+3. **Comprender el modelo relacional:** Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos "dvdrental", las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+4. **Documentar la base de datos:** Crear un diccionario de datos que describa las tablas y columnas.
 Desglose de las Tareas a Realizar
+
 Carga de la Base de Datos:
 
 Descomprimir el archivo .tar.
