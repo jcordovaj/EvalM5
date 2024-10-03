@@ -12,8 +12,12 @@ Las tareas requeridas son:
 
 1. **Cargar una base de datos desde un archivo:** Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado ".tar" a PostgreSQL.
 
-![carga_bbdd](./img/restore_001.jpg)
+![carga_bbdd](./img/restore_001.PNG)
 
+Como se observa en la imagen, se montó la base en dos servidores:
+ * Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+ * Localhost: Se montaron dos instancias ("dvdrental" y "dvdrentalTest"). Todos los ejercicios fueron desarrollados en "dvdrentalTest", para que en la segunda se pudiesen replicar todos los ejercicios, en la misma secuencia y obtener los mismos resultados.
+    
 2. **Escribir consultas SQL:** Se han debido crear consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
  
 3. **Comprender el modelo relacional:** Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos "dvdrental", las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
