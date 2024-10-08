@@ -7,41 +7,546 @@ El presente trabajo es parte de los requisitos de evaluación al término del m�
 ## Análisis del requerimiento
 
 Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, "dvdrental", relacionada con el arrendamiento de películas.
+![carga_bbdd](./img/restore_001.PNG)
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+* Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+* Localhost: Se montaron dos instancias ("dvdrental" y "dvdrentalTest"). Tod
 
 Las tareas requeridas son:
 
 1. **Cargar una base de datos desde un archivo:** Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado ".tar" a PostgreSQL.
+os los ejercicios fueron desarrollados en "dvdrentalTest", para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
 
-![carga_bbdd](./img/restore_001.PNG)
+1. **Escribir consultas SQL:** Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+ 
+2. **Comprender el modelo relacional:** Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos "dvdrental", las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+3. **Documentar la base de datos:** Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+4. **Crear un backup:**  Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+## Desglose de las Tareas a Realizar
+
+### Carga de la Base de Datos:
+
+Utilizando la interfaz pgAdmin, se solicicita realizar el procedimiento de restauración a través de la descomprensión del archivo .tar de la bbdd.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+### Construcción de Consultas:
+
+* **Operaciones CRUD:**
+ 	- **INSERT:** Se crean nuevos registros en las tablas customer, staff y actor. Se  presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura. 
+ 	- **UPDATE:** Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+	- **DELETE:** Eliminar filas de las tablas mencionadas.
+
+Ejemplo:
+
+EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
 
 Como se observa en la imagen, se montó la base en dos servidores:
- * Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
- * Localhost: Se montaron dos instancias ("dvdrental" y "dvdrentalTest"). Todos los ejercicios fueron desarrollados en "dvdrentalTest", para que en la segunda se pudiesen replicar todos los ejercicios, en la misma secuencia y obtener los mismos resultados.
-    
-2. **Escribir consultas SQL:** Se han debido crear consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
- 
-3. **Comprender el modelo relacional:** Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos "dvdrental", las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
 
-4. **Documentar la base de datos:** Crear un diccionario de datos que describa las tablas y columnas.
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
 Desglose de las Tareas a Realizar
-
 Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
 
-Descomprimir el archivo .tar.
-Utilizar herramientas de PostgreSQL (como psql o pgAdmin) para importar la base de datos.
-Consultar la documentación de PostgreSQLTutorial.com si se presentan dificultades.
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
 Construcción de Consultas:
-
 Operaciones CRUD:
-INSERT: Crear nuevas filas en las tablas customer, staff y actor.
-UPDATE: Modificar datos existentes en las tablas mencionadas.
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
 DELETE: Eliminar filas de las tablas mencionadas.
 Ejemplo:
-SQL
--- Insertar un nuevo cliente
+
+‘EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘‘‘SQL
+-- Insercion de un nuevo cliente
 INSERT INTO customer (first_name, last_name, email)
-VALUES ('John', 'Doe', 'johndoe@example.com');
-Usa el código con precaución.
+VALUES ('Jota', 'Cordova', 'jotacordova@testmail.com');
+
+
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘EVALUACIÓN FINAL - MÓDULO 5 - “SQL/PGSQL”
+Introducción
+El presente trabajo es parte de los requisitos de evaluación al término del módulo 5, del bootcamp Full Stack Python, relativo a conocimientos de sql, aplicados sobre una base de datos postgreSQL v. 16.4, llamada “dvdrental”.
+
+Análisis del requerimiento
+Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista por pgSQL, “dvdrental”, relacionada con el arrendamiento de películas. carga_bbdd
+
+Como se observa en la imagen, se montó la base en dos servidores:
+
+Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.
+Localhost: Se montaron dos instancias (“dvdrental” y “dvdrentalTest”). Tod
+Las tareas requeridas son:
+
+Cargar una base de datos desde un archivo: Para el cumplimiento se ha procedido a realizar la actividad, importando el archivo proporcionado “.tar” a PostgreSQL. os los ejercicios fueron desarrollados en “dvdrentalTest”, para que, en la segunda, se pudiesen replicar todos los pasos, en la misma secuencia y obtener los mismos resultados.
+
+Escribir consultas SQL: Se han creado consultas para realizar operaciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar), y también consultas más complejas para obtener información específica.
+
+Comprender el modelo relacional: Para poder armar las distintas consultas y operaciones sobre la base de datos, se ha analizado la estructura de la base de datos “dvdrental”, las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+
+Documentar la base de datos: Se ha procedido también, a crear un diccionario de datos que describe las tablas y columnas.
+
+Crear un backup: Se genera un respaldo con los cambios producidos en la BBDD para su comprobación.
+
+Desglose de las Tareas a Realizar
+Carga de la Base de Datos:
+Utilizando la interfaz pgAdmin, se procede a realizar el procedimiento de restauración a través de la descomprensión del archivo .tar.
+
+Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como en localhost.
+
+Para probar todos los métodos, también se probó el método desde la consola, usando psql.
+
+Construcción de Consultas:
+Operaciones CRUD:
+INSERT: Se crean nuevos registros en las tablas customer, staff y actor. Se presta atención a la eliminación de registros que dependen de otros, por ejemplo la dirección depende de cliente y, si se elimina cliente, la dirección pierde la relación y queda como información basura.
+UPDATE: Se desarrollan scripts sql que modifican datos existentes en las mismas tablas mencionadas.
+DELETE: Eliminar filas de las tablas mencionadas.
+Ejemplo:
+
+‘
+
 
 Consultas de selección:
 Listar rentals por año y mes:
