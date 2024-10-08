@@ -49,9 +49,10 @@ Para probar todos los métodos, también se probaron por consola, usando psql.
 Ejemplo:
 
 ‘‘‘SQL
+
 -- Insercion de un nuevo cliente
 INSERT INTO customer (first_name, last_name, email)
-VALUES ('Jota', 'Cordova', 'jotacordova@testmail.com');
+VALUES ('Jota', 'Cordova', 'jotacordova@testmail.com');‘‘‘
 
 
 Introducción
