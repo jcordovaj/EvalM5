@@ -21,13 +21,13 @@ Las tareas requeridas son:
 
 **Nota:** Los ejercicios fueron desarrollados en "dvdrentalTest", para que, en la segunda instancia, se pudiesen replicar todos los pasos desde 0, en la misma secuencia y así obtener los mismos resultados.
 
-1. **Escribir consultas SQL:** Se entiende que se deben crear consultas básicas de tipo CRUD, y también, consultas más complejas para obtener información específica, por ejemplo, aplicando agrupaciones.
+2. **Escribir consultas SQL:** Se entiende que se deben crear consultas básicas de tipo CRUD, y también, consultas más complejas para obtener información específica, por ejemplo, aplicando agrupaciones.
  
-2. **Comprender el modelo relacional:** Para poder armar las distintas consultas y operaciones sobre la base de datos, se requiere analizar y entender la estructura de la base de datos "dvdrental", las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
+3. **Comprender el modelo relacional:** Para poder armar las distintas consultas y operaciones sobre la base de datos, se requiere analizar y entender la estructura de la base de datos "dvdrental", las relaciones entre las tablas, restricciones y otros elementos que forman parte del esquema original.
 
-3. **Documentar la base de datos:** Se solicita también, crear un diccionario de datos que describa las tablas y columnas.
+4. **Documentar la base de datos:** Se solicita también, crear un diccionario de datos que describa las tablas y columnas.
 
-4. **Crear un backup:**  Finalmente, para poder auditar las operaciones solicitadas, se debe generar un respaldo con los cambios producidos en la BBDD para su comprobación.
+5. **Crear un backup:**  Finalmente, para poder auditar las operaciones solicitadas, se debe generar un respaldo con los cambios producidos en la BBDD para su comprobación.
 
 ## Desglose de las Tareas a Realizar
 
