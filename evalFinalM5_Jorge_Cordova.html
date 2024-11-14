@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>evalFinalM5_Jorge_Cordova.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="evaluaci%C3%B3n-final-modulo-5">EVALUACIÓN FINAL MODULO 5</h1>
+<p>Autor : Jorge Córdova</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731413642737.png" alt="1731413642737"></p>
+<h2 id="introducci%C3%B3n">Introducción</h2>
+<p>El presente trabajo es parte de los requisitos de evaluación al término del módulo 5,
+del bootcamp Full Stack Python, relativo a conocimientos sobre sql, usando el motor
+de base de datos PostgreSQL v. 16.4.</p>
+<h2 id="an%C3%A1lisis-del-requerimiento">Análisis del requerimiento</h2>
+<p>Para los ejercicios propuestos se ha utilizado la base de datos de ejemplo, provista
+por pgSQL, llamada &quot;dvdrental&quot;, relacionada con el arrendamiento de películas.</p>
+<p>Como se observa en la imagen, se montó la base en dos servidores:</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731413914353.png" alt="1731413914353"></p>
+<ul>
+<li>En Azure: Se aprovechó el ejercicio para montar una instancia en un servidor en la nube.</li>
+<li>En Localhost: Se montaron dos instancias (&quot;dvdrental&quot; y &quot;dvdrentalTest&quot;).</li>
+<li>En MongoDB: mediante la exportanción de las tablas en formato CSV, se montó la
+misma base sólo con fines académicos.</li>
+</ul>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731434507611.png" alt="1731434507611"></p>
+<p>Las tareas requeridas son:</p>
+<ol>
+<li>Cargar una base de datos desde un archivo de respaldo: Para el cumplimiento
+de la actividad, se importó el archivo proporcionado &quot;.tar&quot; a PostgreSQL.
+Nota: Los ejercicios fueron desarrollados en la instancia &quot;dvdrentalTest&quot;,
+para que, en la segunda instancia (&quot;dvdrental&quot;), se pudiesen replicar todos
+los pasos desde 0, en la misma secuencia y así obtener los mismos resultados.</li>
+<li>Escribir consultas SQL: Se entiende que se deben crear consultas básicas de
+tipo CRUD, y también, consultas más complejas para obtener información específica,
+por ejemplo, aplicando agrupaciones.</li>
+<li>Comprender el modelo relacional: Para poder armar las distintas consultas y
+operaciones sobre la base de datos, se requiere analizar y entender la estructura
+de la base de datos &quot;dvdrental&quot;, las relaciones entre sus tablas, restricciones
+y otros elementos que forman parte del esquema original.</li>
+<li>Documentar la base de datos: Se solicita también, crear un diccionario de datos
+que describa las tablas y columnas.</li>
+<li>Crear un backup: Finalmente, para poder auditar las operaciones solicitadas,
+se debe generar un respaldo con los cambios producidos en la BBDD para su comprobación.</li>
+</ol>
+<h2 id="restaurar-la-bbdd-%22dvdrental%22">Restaurar la BBDD &quot;DVDRENTAL&quot;</h2>
+<p>La descripción no específica cómo, sin embargo, para restaurar la base se puede
+hacer a través de línea de comandos, o utilizando la interfaz gráfica que, con
+pocas acciones permite montar el esquema y los datos en la nueva base de datos
+de destino.</p>
+<p>Se realizó el procedimiento de restauración a través de la descomprensión del
+archivo &quot;.tar&quot; de la bbdd.</p>
+<p>Se realizó el mismo procedimiento tanto para instanciar la BBDD en Azure, como
+en localhost.</p>
+<p>Para probar todos los métodos, también se probaron por consola, usando psql.</p>
+<p>Restaurar BBDD desde PgAdmin
+<img src="image/evalFinalM5_Jorge_Cordova/1731422530262.png" alt="1731422530262"></p>
+<p>Indicar la ruta para el archivo de restauración &quot;.tar&quot;
+<img src="image/evalFinalM5_Jorge_Cordova/1731434721768.png" alt="1731434721768"></p>
+<h2 id="antes-de-empezar">Antes de empezar</h2>
+<ul>
+<li>
+<p><strong>Eliminar o reemplazar una función</strong></p>
+<p>Cada vez que una función se modifica, debe ser actualizada pero, para ello,
+si la función ya existía, requiere ser eliminada previamente. Esta es una
+tarea habitual.</p>
+<p>Esta sentencia se puede escribir &quot;a mano&quot; o, se puede usar la que provee el
+propio pgAdmin, haciendo click derecho sobre el objeto, luego
+&quot;Scripts/CREATE/Create Script&quot;. Esta acción abrirá una pestaña mostrando el
+código y, en la parte superior, se hallará la sentencia para dropear la función,
+sin cometer errores de sintáxis.</p>
+</li>
+</ul>
+<h2 id="procedimientos-generales-de-inserci%C3%B3n">PROCEDIMIENTOS GENERALES DE INSERCIÓN</h2>
+<ol>
+<li>
+<p>OPERACIONES DE INSERCIÓN PARA LA ENTIDAD CUSTOMER</p>
+<ul>
+<li>
+<p><strong>Insertar un cliente de forma manual (&quot;create&quot; CUSTOMER)</strong></p>
+<p>Para insertar un nuevo registro en la tabla customer se requiere hacer dos
+operaciones secuenciales.</p>
+<p>Primero, crear la dirección, en su defecto se generará un error de FK, si se
+intenta, insertar un customer, sin su dirección.</p>
+<p>Segundo, realizar una inserción simple, pero lo vamos a resolver con una función
+que haga ambas cosas.</p>
+</li>
+<li>
+<p><strong>Datos de ejemplo:</strong></p>
+<p>Para generar datos aleatorios se creo una función en Python usando la librería
+FAKER, todos los datos generados para prueba se generan y guardan en la carpeta:</p>
+<p>.\data_pruebas_[fecha].csv</p>
+<p>Las tuplas generadas para este caso son:</p>
+<pre><code> ```sql
+ ('Jorge', 'Cordova', 'jorge.cordova@mymail.com', 'Calle Siempreviva 123', 'Santiago', 1, 1, '12345', '9555-12121');
+ ('Jota', 'Juillerat', 'jota.juillerat@elmail.com', 'Calle Elm 456', 'Santiago', 1, 1, '67890', '9444-21212', 1); ('Alejandro', 'Juille', 'alejuille@mumail.com', 'Calle Test 789', 'Santiago', 1, 1, '13579', '9333-31313', 1);
+ ('Ale', 'Cordova', 'ale_cordova@gmail.com', 'Calle Nueva 2354', 'Santiago', 1, 1, '75000', '9666-43434', 1);
+ ('Cindy Test', 'Gonzalez Test', 'cynthiatest@testmail.net', '753 Carlson Courts, MA 61349', 'Davidfort', 1, 1, '50600', '736.643.4357', 1);
+ ('Teresa Garcia Test', 'Test Brady', 'TereGarcia@example.net', '068 Samuel Islands Apt. 711, IN 45377', 'Joneston', 1, 1, '17589', '(905)654-0273', 0); 
+ ```
+</code></pre>
+<p>Luego de chequear varias veces, logré establecer los campos que son necesarios
+para conservar la integridad y respetar los constraints (por ejemplo, no nulo
+o requerido).</p>
+<p>La lógica es simple, se capturan todos los datos necesarios, luego se insertan
+en el orden correcto, primero address y luego customer, así se garantiza que se
+cumplan la integridad y las restricciones.</p>
+</li>
+<li>
+<p><strong>Script 'DROP' función que insertar cliente (CUSTOMER)</strong></p>
+<p>Este es el último script para dropear la función que inserta un nuevo customer
+en la tabla.</p>
+<pre><code> ```sql 
+ DROP FUNCTION IF EXISTS f_insertar_cliente(character varying,  character varying, character varying, character varying, character varying,  integer, integer, character varying, character varying, integer); 
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>FUNCTION: f_insertar_cliente()</strong></p>
+<pre><code> ```sql 
+ CREATE OR REPLACE FUNCTION f_insertar_cliente( _first_name VARCHAR(45), _last_name VARCHAR(45), _email VARCHAR(50), _address VARCHAR(50), _district VARCHAR(20), _city_id INT, _store_id INT, _postal_code VARCHAR(10), _phone VARCHAR(20), _active INT ) 
+ RETURNS VOID AS $$ 
+ DECLARE _address_id INT; 
+ BEGIN -- Primero insertamos la dirección, si no existe. 
+     INSERT INTO address (address, district, city_id, postal_code, phone) 
+         VALUES (_address, _district, _city_id, _postal_code, _phone) RETURNING address_id 
+         INTO _address_id; -- Luego, podemos insertar un nuevo cliente sin errores 
+     INSERT INTO customer (first_name, last_name, email, address_id, store_id, active) 
+         VALUES (_first_name, _last_name, _email, _address_id, _store_id, _active); 
+ END; 
+ $$ 
+ LANGUAGE plpgsql; 
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Datos de ejemplo insertados</strong></p>
+<p>La primera versión funcional del insert, generó que el campo 'active' del
+registro <strong>customer_id Nr.602</strong>, quedase vacío (null), sin embargo, se
+aprovechará este error para aplicar el procedimiento de actualización o
+update en la sección siguiente</p>
+<pre><code> ```sql
+ SELECT f_insertar_cliente('Jorge', 'Cordova', 'jorge.cordova@mymail.com', 'Calle Siempreviva 123', 'Santiago', 1, 1, '12345', '9555-12121'); 
+ SELECT f_insertar_cliente('Jota', 'Juillerat', 'jota.juillerat@elmail.com', 'Calle Elm 456', 'Santiago', 1, 1, '67890', '9444-21212', 1); 
+ SELECT f_insertar_cliente('Alejandro', 'Juille', 'alejuille@mumail.com', 'Calle Test 789', 'Santiago', 1, 1, '13579', '9333-31313', 1); 
+ SELECT f_insertar_cliente('Ale', 'Cordova', 'ale_cordova@gmail.com', 'Calle Nueva 2354', 'Santiago', 1, 1, '75000', '9666-43434', 1); 
+ SELECT f_insertar_cliente('Cindy Test', 'Gonzalez Test', 'cynthiatest@testmail.net', '753 Carlson Courts, MA 61349', 'Davidfort', 1, 1, '50600', '736.643.4357', 1); 
+ SELECT f_insertar_cliente('Teresa Garcia Test', 'Test Brady', 'TereGarcia@example.net', '068 Samuel Islands Apt. 711, IN 45377', 'Joneston', 1, 1, '17589', '(905)654-0273', 0); 
+ ```
+
+ ![1731419931693](image/evalFinalM5_Jorge_Cordova/1731419931693.png)
+
+ ![1731419993663](image/evalFinalM5_Jorge_Cordova/1731419993663.png)
+</code></pre>
+</li>
+<li>
+<p><strong>Listar los registros insertados</strong></p>
+<pre><code> ```sql 
+ SELECT * FROM customer WHERE last_name = 'Cordova' SELECT * FROM customer WHERE last_name = 'Juille' SELECT * FROM customer WHERE last_name = 'Juillerat' SELECT * FROM customer WHERE last_name = 'Juillerat' OR last_name = 'Juille' OR last_name = 'Cordova'  
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731420031082.png" alt="1731420031082"></p>
+<p>Para comprobar que los registros se han agregado, también podemos listar los
+últimos registros de la tabla customer.</p>
+<pre><code> ```sql 
+ SELECT * FROM customer ORDER BY customer_id DESC LIMIT 5 
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731420161400.png" alt="1731420161400"></p>
+<p>La comprobación no puede ser completa, sin listar los cambios de la tabla &quot;address&quot;.
+Listamos las address de los últimos 5 registros agregados</p>
+<pre><code> ```sql
+ SELECT * FROM address ORDER BY address_id DESC LIMIT 5 
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731420212722.png" alt="1731420212722"></p>
+<p>Para indagar sobre las restricciones utilicé la siguiente consulta, que extrae
+los nombres de las restricciones únicas definidas en una tabla, por ejemplo:
+&quot;customer&quot; o &quot;address&quot;</p>
+<p>P.D: No sirvió de mucho, se entendería que no hay restricciones, más allá de
+not null o FK.</p>
+<pre><code> ```sql 
+ SELECT conname FROM pg_constraint WHERE contype = 'u' AND conrelid = 'customer'::regclass; SELECT conname FROM pg_constraint WHERE contype = 'u' AND conrelid = 'address'::regclass; 
+ ```
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>OPERACIONES DE INSERCIÓN PARA LA ENTIDAD STAFF</p>
+<ul>
+<li>
+<p><strong>Insertar un nuevo empleado (STAFF)</strong></p>
+<ul>
+<li>
+<p>Consideraciones:</p>
+<ol>
+<li>
+<p>Se debe tener cuidado al insertar un nuevo registro porque hace referencia
+a una tabla externa (&quot;address&quot;), a través de su clave foránea &quot;address_id&quot;.</p>
+</li>
+<li>
+<p>Adicionalmente, la tabla &quot;address&quot;, también posee referencia a otras tablas
+a través de la FK &quot;city_id&quot;, la que a su vez, está vinculada a la FK &quot;country_id&quot;.</p>
+</li>
+<li>
+<p>Se podría generar una función que valide estos aspectos, introduciendo una
+capa adicional de verificación, por ejemplo, comprobando si la ciudad y el
+país existen, lanzando una excepción del tipo:</p>
+<pre><code>```sql 
+IF _city_id IS NULL AND NOT EXISTS (SELECT 1 FROM country WHERE country_id = _country_id) THEN RAISE EXCEPTION 'La ciudad y/o el país no existen.'; END IF; 
+```
+</code></pre>
+<p>Sin embargo, esto detendría el proceso.</p>
+</li>
+<li>
+<p>También se podrían insertar la ciudad y el país, en caso de no existir, agregando
+a nuestra función una consulta como esta:</p>
+<pre><code>```sql 
+IF _city_id IS NULL THEN INSERT INTO city(city, country_id, last_update) VALUES (_city_name, _country_id, NOW()) RETURNING city_id INTO _city_id; INSERT INTO country(country, last_update) VALUES WHERE NOT EXISTS (SELECT 1 FROM country WHERE country_id = _country_id); END IF; 
+```
+</code></pre>
+</li>
+<li>
+<p>Estas dos aproximaciones al problema de lograr mayor integridad en los datos
+para no generar datos basura que luego no conecten con nada, tienen pros y
+contras.
+Por ejemplo, podría no ser deseado que se cree un país que no existe (ficticio),
+o que sea un proceso administrativo que requiere aprobación para modificar un
+mantenedor.
+También podría ocurrir que el detectar si la ciudad o país no existen, lanzando
+una excepción, no sea un comportamiento deseado para la aplicación. En ambos
+casos, el beneficio es una bbdd consistente, íntegra y útil para los usos que se
+le quiera dar. Para efectos académicos, habiendo entendido el problema, se reducirá
+la complejidad, omitiendo estos escenarios y creando datos de pruebas con los
+datos existente en los mantenedores (países y ciudades ya creados)</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>FUNCTION: f_insertar_staff()</strong></p>
+<pre><code> ```sql 
+ CREATE OR REPLACE FUNCTION f_insertar_staff( _first_name text, 
+             _last_name text, 
+             _address text, 
+             _address2 text, 
+             _district text, 
+             _city_id integer, 
+             _postal_code text, 
+             _phone text, 
+             _email text, 
+             _store_id integer, 
+             _active boolean, 
+             _username text, 
+             _password text 
+     ) 
+ RETURNS void AS $$ 
+ DECLARE v_address_id integer; 
+ BEGIN -- Primero insertamos la dirección para mantener la consistencia de BBDD -- Para el city_id, usaremos datos existentes en la BBDD 
+     INSERT INTO address( address, address2, district, city_id, postal_code, phone, last_update ) 
+     VALUES ( _address, _address2, _district, _city_id, _postal_code, _phone, NOW() ) RETURNING address_id 
+     INTO v_address_id; -- Insertar el empleado 
+     INSERT INTO staff( first_name, last_name, address_id, email, store_id, active, username, password, last_update ) 
+     VALUES ( _first_name, _last_name, v_address_id, _email, _store_id, _active, _username, _password, NOW() ); 
+ END; $$ 
+ LANGUAGE plpgsql; 
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731433844609.png" alt="1731433844609"></p>
+</li>
+<li>
+<p><strong>Eliminar la función f_insertar_staff()</strong></p>
+<pre><code> ```sql 
+ DROP FUNCTION IF EXISTS f_eliminar_staff(integer); 
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Datos de prueba f_insertar_staff()</strong></p>
+<p>Referencia) (first_name, last_name, address, address2, district, city_id, postal_code, phone, email, store_id, active, username, password)</p>
+<pre><code> ```sql 
+ ('Pedrito', 'Staff1', 'Recoleta 123', 'Santiago', 'Santiago', 300, '912345', '9555-5555', 'pstaff1e@eval5.com', 2, true, 'Pedrito1', 'pass123') 
+ ('Juanito', 'Staff2', 'Vivaceta 321', 'Recoleta', 'Recoleta', 576, '812345', '9444-2222', 'jstaff2@eval5.com', 1, true, 'Juanito2', 'pass123') 
+ ('Dieguito', 'Staff3', 'Apoquindo 3321', 'Las Condes', 'Las Condes', 300, '912345', '8333-5555', 'dstaff3@eval5.com', 2, true, 'Dieguito3', 'pass123') 
+ ('Fulanito', 'Staff4', 'Alameda 8321', 'Santiago', 'Santiago', 576, '812345', '2555-1111', 'fstaff4@eval5.com', 2, true, 'Fulanito4', 'pass123') 
+ ('Sutanito', 'Staff5', 'Matta 2321', 'Santiago', 'Santiago', 300, '912345', '3123-1231', 'sstaff5@eval5.com', 1, true, 'Sutanito5', 'pass123') 
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Ejecución</strong></p>
+<pre><code> ```sql 
+ SELECT f_insertar_staff('Pedrito', 'Staff1', 'Recoleta 123', 'Santiago', 'Santiago', 300, '912345', '9555-5555', 'pstaff1e@eval5.com', 2, true, 'Pedrito1', 'pass123'); 
+ SELECT f_insertar_staff('Juanito', 'Staff2', 'Vivaceta 321', 'Recoleta', 'Recoleta', 576, '812345', '9444-2222', 'jstaff2@eval5.com', 1, true, 'Juanito2', 'pass123'); 
+ SELECT f_insertar_staff('Dieguito', 'Staff3', 'Apoquindo 3321', 'Las Condes', 'Las Condes', 300, '912345', '8333-5555', 'dstaff3@eval5.com', 2, true, 'Dieguito3', 'pass123'); 
+ SELECT f_insertar_staff('Fulanito', 'Staff4', 'Alameda 8321', 'Santiago', 'Santiago', 576, '812345', '2555-1111', 'fstaff4@eval5.com', 2, true, 'Fulanito4', 'pass123'); 
+ SELECT f_insertar_staff('Sutanito', 'Staff5', 'Matta 2321', 'Santiago', 'Santiago', 300, '912345', '3123-1231', 'sstaff5@eval5.com', 1, true, 'Sutanito5', 'pass123'); 
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731434190221.png" alt="1731434190221"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>OPERACIONES DE INSERCIÓN PARA LA ENTIDAD ACTOR</p>
+<ul>
+<li>
+<p><strong>Insertar un nuevo actor (ACTOR)</strong></p>
+<ul>
+<li>
+<p>Consideraciones:</p>
+<ol>
+<li>No existen restricciones evidentes al momento de crear un nuevo actor,
+porque esta tabla es referida por la tabla &quot;film&quot;, pudiendo un actor, no
+tener asociadas películas al momento de ser creado.</li>
+<li>Entendiendo cómo funciona la tabla, vamos a crear una función que inserte
+nuevos registros en la tabla actor, pero antes de hacer la inserción,
+verificará si el actor ya existe en la base de datos, evitando así duplicados.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>FUNCTION: f_insertar_actor()</strong></p>
+<pre><code> ```sql 
+ CREATE OR REPLACE FUNCTION f_insertar_actor(
+ _first_name text,
+ _last_name text
+ )
+ RETURNS void AS
+ $$
+ DECLARE
+     _actor_id integer;
+ BEGIN
+ -- Verificamos si el actor ya existe
+ SELECT actor_id INTO _actor_id
+ FROM actor
+ WHERE first_name = _first_name AND last_name = _last_name;
+ -- Si no existe, insertamos el nuevo actor
+ IF _actor_id IS NULL THEN
+     INSERT INTO actor(
+         first_name, last_name, last_update
+     )
+     VALUES (
+         _first_name, _last_name, NOW()
+     );
+ ELSE
+     RAISE NOTICE 'El actor % % ya existe.', _first_name, _last_name;
+ END IF;
+ END;
+ $$
+ LANGUAGE plpgsql;
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731433551631.png" alt="1731433551631"></p>
+</li>
+<li>
+<p><strong>Eliminar la función f_insertar_actor()</strong></p>
+<pre><code> ```sql 
+ DROP FUNCTION IF EXISTS f_insertar_actor(text, text); 
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Datos de prueba: f_insertar_actor()</strong></p>
+<pre><code> ```sql 
+     ('Burt', 'Dukakis'); -- El actor ya existe en la tabla, lanza el aviso de duplicado 
+     ('Spencer', 'Depp'); -- El actor ya existe en la tabla, lanza el aviso de duplicado 
+     ('Juanito', 'Actor1');  -- Registro nuevo, aparece al final de la tabla ACTOR 
+     ('Pedrito', 'Actor2');  -- Registro nuevo, aparece al final de la tabla ACTOR 
+     ('Dieguito', 'Actor3'); -- Registro nuevo, aparece al final de la tabla ACTOR 
+     ```
+</code></pre>
+</li>
+<li>
+<p><strong>Ejecución</strong></p>
+<pre><code> ```sql 
+ SELECT f_insertar_actor('Burt', 'Dukakis');  -- Debe mostrar un aviso de duplicado 
+ SELECT f_insertar_actor('Spencer', 'Depp');  -- Debe mostrar un aviso de duplicado 
+ SELECT f_insertar_actor('Juanito', 'Actor1'); 
+ SELECT f_insertar_actor('Pedrito', 'Actor2'); 
+ SELECT f_insertar_actor('Dieguito', 'Actor3'); 
+ ```
+</code></pre>
+<p>No inserta datos duplicados
+<img src="image/evalFinalM5_Jorge_Cordova/1731433680397.png" alt="1731433680397"></p>
+<p>Hace validación a través de evaluar los argumentos
+<img src="image/evalFinalM5_Jorge_Cordova/1731433729040.png" alt="1731433729040"></p>
+<p>Sólo inserta los nuevos registros
+<img src="image/evalFinalM5_Jorge_Cordova/1731433751603.png" alt="1731433751603"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="procedimientos-generales-de-eliminaci%C3%B3n">PROCEDIMIENTOS GENERALES DE ELIMINACIÓN</h2>
+<ol>
+<li>
+<p>OPERACIONES DE ELIMINACIÓN PARA LA ENTIDAD CUSTOMER</p>
+<ul>
+<li>
+<p><strong>Eliminar un cliente de forma manual (&quot;DELETE&quot; CUSTOMER)</strong></p>
+<p>Forma simple, eliminamos el cliente con 2 consultas, Una para el customer
+y la otra para la dirección</p>
+<p>Primero eliminamos el customer por su ID de customer. Se eliminará el
+customer_id = 603</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731428715103.png" alt="1731428715103"></p>
+<pre><code> ```sql 
+ -- Primero eliminamos el customer 603 
+ DELETE FROM customer WHERE customer_id = 603; 
+ -- Tiene el address_id = 615 
+ -- Segundo, eliminamos el address_id 615 
+ DELETE FROM address WHERE address_id = 615; 
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731428782902.png" alt="1731428782902"></p>
+<p>Registro en customer borrado
+<img src="image/evalFinalM5_Jorge_Cordova/1731428833647.png" alt="1731428833647"></p>
+<p>Registro en address borrado
+<img src="image/evalFinalM5_Jorge_Cordova/1731428934147.png" alt="1731428934147"></p>
+</li>
+<li>
+<p><strong>Eliminar un cliente usando una función</strong></p>
+<p>Se creo la función &quot;f_eliminar_cliente(integer)&quot;, que ELIMINA UN CLIENTE DE
+LA TABLA CUSTOMER.</p>
+<p>Primero, se debe verificar si hay &quot;borrado en cascada&quot;, en su defecto, se
+debe manejar el procedimiento (manual o a través de funciones) para no dejar
+datos inconsistentes o dark data.</p>
+<p>La siguiente consulta, fue la primera versión que no borra la dirección, pero
+se dejó para mostrar como manejar el error.</p>
+</li>
+<li>
+<p><strong>Primera versión de la función (No borra address)</strong></p>
+<pre><code> ```sql 
+ CREATE OR REPLACE FUNCTION f_eliminar_cliente(_customer_id INT) 
+ RETURNS VOID AS $$ BEGIN DELETE FROM customer 
+ WHERE customer_id = _customer_id; 
+ END; 
+ $$ 
+ LANGUAGE plpgsql; 
+ ```
+</code></pre>
+<p>Ejecutamos la función y eliminamos un registro de la tabla customer por su id = 605</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731429063373.png" alt="1731429063373"></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731429090400.png" alt="1731429090400"></p>
+<pre><code> ```sql 
+ SELECT f_eliminar_cliente(605) 
+ ```
+</code></pre>
+<p>Como se observa en la BBDD, el script original, sólo eliminaba el customer,
+pero no su dirección (address), por lo que procedemos a eliminarla manualmente,
+antes de corregir la función y luego, probaremos nuevamente con la nueva versión.</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731429139312.png" alt="1731429139312"></p>
+<pre><code> ```sql 
+ DELETE FROM address 
+ WHERE address_id = 617; -- El address_id correspondiente al customer_id 605 
+ ```
+</code></pre>
+<p>Eliminamos la función anterior, antes de guardar las modificaciones</p>
+<pre><code> ```sql 
+ DROP FUNCTION IF EXISTS f_eliminar_cliente(integer); 
+ ```
+</code></pre>
+<p>Habiendo observado el error, procedemos a corregir la función, ahora si elimina
+el cliente y su dirección. La función recibe un customer_id, y lo primero que
+hace es buscar el address_id por el customer_id, y almacena el dato en una
+varible. Luego, procesa la eliminación de la dirección, que debe ser previo
+al customer y, finalmente, elimina el customer por su customer_id.</p>
+</li>
+<li>
+<p><strong>FUNCTION: f_eliminar_cliente(), versión corregida</strong></p>
+<pre><code> ```sql 
+ CREATE OR REPLACE FUNCTION f_eliminar_cliente(_customer_id INT)  
+ RETURNS VOID AS $$ 
+ DECLARE _address_id INT; 
+ BEGIN -- Primero, se debe obtener el address_id a partir del customer_id 
+ SELECT address_id 
+     INTO _address_id 
+     FROM customer 
+     WHERE customer_id = _customer_id; -- Segundo, se debe eliminar el cliente, antes que la dirección, por un constraint (FK) 
+ DELETE FROM customer 
+     WHERE customer_id = _customer_id; -- Finalmente, se puede eliminar la dirección 
+ DELETE FROM address 
+     WHERE address_id = _address_id; 
+ END; 
+ $$ 
+ LANGUAGE plpgsql; 
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Ejecutamos la eliminación de un registro CUSTOMER</strong></p>
+<p>Ahora, con la función corregida, eliminaremos el cliente &quot;customer_id = 604&quot;
+y su dirección asociada &quot;address_id = 616&quot;</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731429597038.png" alt="1731429597038"></p>
+<pre><code> ```sql 
+ SELECT f_eliminar_cliente(604); 
+ ```
+</code></pre>
+<p>Como se puede comprobar en la BBDD, el registro no existe en la tabla
+CUSTOMER y tampoco en la tabla ADDRESS asociada por su address_id.</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731430009167.png" alt="1731430009167"></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731429919563.png" alt="1731429919563"></p>
+<p>Para verificar, se pueden listar últimos registros de las tablas afectadas.</p>
+<pre><code> ```sql
+ SELECT * FROM customer ORDER BY customer_id DESC LIMIT 10 -- No se puede ver el registro 604
+
+ SELECT * FROM address ORDER BY address_id DESC LIMIT 10   -- No se puede ver el registro 616
+ ```
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>OPERACIONES DE ELIMINACIÓN PARA LA ENTIDAD STAFF</p>
+<ul>
+<li>
+<p><strong>Eliminar un empleado (&quot;DELETE&quot; STAFF)</strong></p>
+<p>Forma simple, eliminamos el empleado haciendo una consulta a la tabla &quot;staff&quot;
+y una consulta a la tabla &quot;address&quot;.</p>
+<p>Para este ejemplo, de los empleados que creamos antes, usaremos el empleado #7,
+cuyo address_id es #624.</p>
+<pre><code> ```sql
+ -- Primero, eliminamos el registro del empleado su id de empleado
+
+ DELETE FROM staff
+ WHERE staff_id = 7;
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731430321723.png" alt="1731430321723"></p>
+<pre><code> ```sql
+ --  Segundo eliminamos la dirección del empleado por su id de dirección:
+
+ DELETE FROM address
+ WHERE address_id = 624;
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731430626016.png" alt="1731430626016"></p>
+<pre><code> ```sql
+ -- Se verifica con las siguientes consultas
+ SELECT * FROM staff
+ ORDER BY staff_id ASC LIMIT 10
+
+ SELECT * FROM address
+ ORDER BY address_id DESC LIMIT 10
+ ```
+</code></pre>
+<p>Usando una función, eliminaremos el empleado pasando como parámetro el número
+de su id (staff_id), la misma función hará la consulta a la tabla &quot;address&quot; y,
+usando su &quot;address_id&quot;, eliminará la dirección.</p>
+<p>Por dependencia, se debe eliminar primero el empleado, y luego la dirección.</p>
+<p>Para el ejemplo, eliminaremos el registro #6 de la tabla staff, cuyo address_id
+es el 623.</p>
+</li>
+<li>
+<p><strong>Eliminar la función (DROP)</strong></p>
+<pre><code> ```sql 
+ DROP FUNCTION IF EXISTS f_eliminar_empleado(integer);
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>FUNCTION: f_eliminar_empleado()</strong></p>
+<pre><code> ```sql
+ CREATE OR REPLACE FUNCTION f_eliminar_empleado(_staff_id integer) 
+ RETURNS void AS $$ 
+ DECLARE _address_id integer; 
+ BEGIN -- Antes de eliminar el empleado, necesitamos guardar el ID de la dirección 
+     -- porque de otra forma se pierde y no se puede completar el segundo delete 
+ SELECT address_id 
+     INTO _address_id 
+     FROM staff 
+     WHERE staff_id = _staff_id; -- Eliminamos el empleado por su id 
+ DELETE FROM staff 
+     WHERE staff_id = _staff_id; -- Ahora sí podemos eliminar la dirección usando el id guardado IF FOUND THEN DELETE FROM address WHERE address_id = _address_id; 
+ END IF; 
+ END; 
+ $$ 
+ LANGUAGE plpgsql; 
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Ejecutamos</strong></p>
+<pre><code> ```sql 
+ SELECT f_eliminar_empleado(6); SELECT f_eliminar_empleado(5);
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731431175528.png" alt="1731431175528"></p>
+<pre><code> ```sql
+ -- Se verifica con las siguientes consultas
+
+ SELECT * FROM staff
+ ORDER BY staff_id DESC LIMIT 10
+
+ SELECT * FROM address
+ ORDER BY address_id DESC LIMIT 10
+
+ -- Ambos registros fueron correctamente eliminados
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731431229362.png" alt="1731431229362"></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731431260358.png" alt="1731431260358"></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731431831260.png" alt="1731431831260"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>OPERACIONES DE ELIMINACIÓN PARA LA ENTIDAD ACTOR</p>
+<ul>
+<li>
+<p><strong>Eliminar un actor (&quot;DELETE&quot; ACTOR)</strong></p>
+<p>Forma simple, eliminamos el actor haciendo una consulta a la tabla &quot;actor&quot;.</p>
+<p>La tabla no tiene restricciones ni FK de las que dependa.</p>
+<p>Para este ejemplo, de los actores que creamos antes, usaremos el actor #203.</p>
+<pre><code> ```sql
+ -- Eliminamos el registro del actor usando su actor_id
+
+ DELETE FROM actor
+ WHERE actor_id = 203;
+
+ -- Se verifica con la siguiente consulta
+
+ SELECT * FROM actor
+ ORDER BY actor_id DESC LIMIT 10
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731431877584.png" alt="1731431877584"></p>
+<p>Para el siguiente caso, usando una función, eliminaremos un actor pasando
+como parámetro el número de su id (actor_id). No tiene dependencias.</p>
+<p>Eliminaremos el registro #202 de la tabla actor.</p>
+</li>
+<li>
+<p><strong>Eliminar la función (DROP)</strong></p>
+<pre><code> ```sql
+ DROP FUNCTION IF EXISTS f_eliminar_actor(integer);
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>FUNCTION: f_eliminar_actor()</strong></p>
+<pre><code> ```sql 
+ CREATE OR REPLACE FUNCTION f_eliminar_actor(_actor_id integer) 
+ RETURNS void AS $$ 
+ BEGIN 
+ DELETE FROM actor 
+ WHERE actor_id = _actor_id; 
+ END; 
+ $$ 
+ LANGUAGE plpgsql; 
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>EJECUCIÓN</strong></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731432138960.png" alt="1731432138960"></p>
+<pre><code> ```sql
+ SELECT f_eliminar_actor(202);
+
+ -- Se verifica con la siguiente consulta
+
+ SELECT * FROM actor
+ ORDER BY actor_id DESC LIMIT 10
+  ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731432265710.png" alt="1731432265710"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="procedimientos-generales-de-actualizaci%C3%B3n-update">PROCEDIMIENTOS GENERALES DE ACTUALIZACIÓN (UPDATE)</h2>
+<ol>
+<li>
+<p>OPERACIONES DE ACTUALIZACIÓN PARA LA ENTIDAD CUSTOMER</p>
+<ul>
+<li>
+<p><strong>Actualizar un cliente (&quot;UPDATE&quot; CUSTOMER)</strong></p>
+<p>Se proponen 3 métodos para actualizar los registros</p>
+<ul>
+<li>Forma simple.</li>
+<li>Función con un parámetro</li>
+<li>Función 2 con múltiples parámetros</li>
+</ul>
+<p><strong>Forma simple</strong>, usando un select con update y set, podemos actualizar
+un registro en la tabla customer, pero requerirá una acción por cada
+modificación.</p>
+<p>Sintáxis:</p>
+<pre><code> ```sql
+     UPDATE &lt;nombre_tabla&gt;
+     SET &lt;nombre_campo&gt;= &lt;valor_campo&gt;
+     WHERE &lt;condicion&gt;;
+ ```
+</code></pre>
+<p>Campos actualizables o modificables:</p>
+<ul>
+<li>store_id</li>
+<li>first_name</li>
+<li>last_name</li>
+<li>email</li>
+<li>address_id</li>
+<li>activebool</li>
+<li>active</li>
+</ul>
+<p>Primero haremos una actualización simple por el ID de customer. Se modificará
+el correo del &quot;customer_id&quot; = 602,  de &quot;mymail&quot; a &quot;testupdate&quot;.</p>
+<pre><code> ```sql
+ UPDATE customer
+ SET email = 'jcordova@testupdate.com'
+ WHERE customer_id = 602;
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731440689292.png" alt="1731440689292"></p>
+<p>Ejecutando una sentencia &quot;UPDATE&quot;, modificamos el correo del cliente.
+<img src="image/evalFinalM5_Jorge_Cordova/1731462731442.png" alt="1731462731442"></p>
+</li>
+<li>
+<p><strong>FUNCIÓN 1: Actualiza cliente pasando un parámetro de tipo texto</strong></p>
+<p>Párámetros:</p>
+<ul>
+<li>&quot;_customer_id&quot; : El id del customer, de tipo entero.</li>
+<li>&quot;_columna&quot;     : El nombre de una columna cualquiera, tipo texto.</li>
+<li>&quot;_valor&quot;       : Una cadena de texto.</li>
+</ul>
+<p>Retorna: Un mensaje de confirmación por consola.</p>
+<p>Excepción: Esta versión sólo es para campos de tipo texto, se puede hacer una
+variante, modificando el tipo de dato por boolean, numeric, integer</p>
+<p>Para evitar esto, que no es tan eficiente, en la siguiente versión, se agregará
+la lógica usando JSONB, para que recibe argumentos múltiples.</p>
+<pre><code> ```sql
+ -- Versión una columna dinámica
+ CREATE OR REPLACE FUNCTION f_actualiza_cliente(
+     _customer_id INT,
+     _columna TEXT,
+     _valor TEXT
+ )
+ RETURNS VOID
+ LANGUAGE plpgsql
+ AS $$
+ BEGIN
+     -- Arma la consulta de actualización en forma dinámica
+     EXECUTE format(&quot;UPDATE customer SET %I = %L WHERE customer_id = %L&quot;, _columna, _valor, _customer_id);
+     
+     -- Confirma que la actualización se realizó
+     RAISE NOTICE &quot;Customer ID: %, columna % actualizada con valor %&quot;, _customer_id, _columna, _valor;
+ END;
+ $$;
+ ```
+
+ ```sql
+ -- EJECUCIÓN
+ SELECT f_actualiza_cliente(607, 'first_name', 'Uso de Función UPDATE');
+ ```
+</code></pre>
+<p>Registro a modificar en el &quot;first_name&quot;
+<img src="image/evalFinalM5_Jorge_Cordova/1731446529390.png" alt="1731446529390"></p>
+<p>Campo modificado con la cadena &quot;Uso de Función UPDATE&quot;
+<img src="image/evalFinalM5_Jorge_Cordova/1731446641992.png" alt="1731446641992"></p>
+</li>
+<li>
+<p><strong>FUNCIÓN 2: Actualiza cliente pasando parámetros múltiples</strong></p>
+<p>Párámetros:</p>
+<ul>
+<li>_customer_id   : El id del customer, de tipo entero.</li>
+<li>_updates JSONB : Un conjunto de pares clave:valor</li>
+</ul>
+<p>Retorna: Un mensaje de confirmación por consola.</p>
+<pre><code> ```sql
+ -- Versión múltiples campos usando JSONB
+ CREATE OR REPLACE FUNCTION f_actualiza_cliente_multiple(
+     _customer_id INT,
+     _updates JSONB
+ )
+ RETURNS TEXT
+ LANGUAGE plpgsql
+ AS
+ $$
+ DECLARE
+     _columna TEXT;
+     _valor TEXT;
+     _set_clauses TEXT := '';
+ BEGIN
+     -- Invento para armar el SET de una consulta con múltiples columnas dinámicamente
+     FOR _columna, _valor IN SELECT * FROM jsonb_each_text(_updates)
+     LOOP
+         _set_clauses := _set_clauses || format('%I = %L, ', _columna, _valor);
+     END LOOP;
+     -- Se eliminan caracteres como la última coma y espacio extra al formar la consulta
+     _set_clauses := rtrim(_set_clauses, ', ');
+     -- Ejecutamos la actualización para más de 1 columna
+     EXECUTE format('UPDATE customer SET %s WHERE customer_id = %L', _set_clauses, _customer_id);
+     -- Mensaje con confirmación
+     RETURN format('Customer ID %s: columnas actualizadas con los valores %s', _customer_id, _set_clauses);
+ END;
+ $$;
+ ```
+ 
+ ```sql
+ -- EJECUCIÓN
+ SELECT f_actualiza_cliente_multiple(602, '{&quot;last_name&quot;: &quot;Cordova_updated&quot;, &quot;email&quot;: &quot;jota.cordova@update_multiple.com&quot;}');
+ ```
+</code></pre>
+<p>Vista antes de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731463628114.png" alt="1731463628114"></p>
+<p>Ejecutamos la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731463957265.png" alt="1731463957265"></p>
+<p>Vista después de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731464017816.png" alt="1731464017816"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>OPERACIONES DE ACTUALIZACIÓN PARA LA ENTIDAD STAFF</p>
+<ul>
+<li>
+<p><strong>Actualizar un empleado (&quot;UPDATE&quot; STAFF)</strong></p>
+<p>Al igual que con &quot;customer, se puede utilizar cualquiera de los 3 métodos
+ya descritos para actualizar los registros de esta tabla</p>
+<ul>
+<li>Forma simple.</li>
+<li>Función con un parámetro</li>
+<li>Función 2 con múltiples parámetros</li>
+</ul>
+<p><strong>Forma simple</strong>, usando un select con update y set, podemos actualizar
+un registro en la tabla customer, pero requerirá una acción por cada
+modificación.</p>
+<p>Sintáxis:</p>
+<pre><code> ```sql
+     UPDATE &lt;nombre_tabla&gt;
+     SET &lt;nombre_campo&gt;= &lt;valor_campo&gt;
+     WHERE &lt;condicion&gt;;
+ ```
+</code></pre>
+<p>Campos actualizables o modificables:</p>
+<ul>
+<li>first_name</li>
+<li>last_name</li>
+<li>address_id</li>
+<li>email</li>
+<li>store_id</li>
+<li>active</li>
+<li>username</li>
+<li>password</li>
+<li>picture</li>
+</ul>
+<p>Primero haremos una actualización simple por el ID del empleado. Se modificará
+el correo del &quot;staff_id&quot; = 4,  de &quot;jstaff2&quot; a &quot;juanito_staff2&quot;.</p>
+<pre><code> ```sql
+ UPDATE customer
+ SET email = 'juanito_staff2@eval5.com'
+ WHERE staff_id = 4;
+ ```
+</code></pre>
+<p>Vista antes de actualizar
+<img src="image/evalFinalM5_Jorge_Cordova/1731465011952.png" alt="1731465011952"></p>
+<p>Vista después de actualizar
+<img src="image/evalFinalM5_Jorge_Cordova/1731465298791.png" alt="1731465298791"></p>
+</li>
+<li>
+<p><strong>FUNCIÓN 1: Actualiza empleado pasando un parámetro de tipo texto</strong></p>
+<p>Párámetros:</p>
+<ul>
+<li>&quot;_staff_id&quot; : El id del customer, de tipo entero.</li>
+<li>&quot;_columna&quot;  : El nombre de una columna cualquiera, que sea de tipo texto.</li>
+<li>&quot;_valor&quot;    : Una cadena de texto.</li>
+</ul>
+<p>Retorna: Un mensaje de confirmación por consola.</p>
+<p>Excepción: Esta versión sólo es para campos de tipo texto, se puede hacer una
+variante, modificando el tipo de dato por boolean, numeric, integer</p>
+<p>Para evitar esto, que no es tan eficiente, en la siguiente versión, se agregará
+la lógica usando JSONB, para que recibe argumentos múltiples.</p>
+<pre><code> ```sql
+ -- Versión una columna dinámica
+ CREATE OR REPLACE FUNCTION f_actualiza_empleado(
+     _staff_id INT,
+     _columna TEXT,
+     _valor TEXT
+ )
+ RETURNS VOID
+ LANGUAGE plpgsql
+ AS $$
+ BEGIN
+     -- Arma la consulta de actualización en forma dinámica
+     EXECUTE format('UPDATE staff SET %I = %L WHERE staff_id = %L', _columna, _valor, _staff_id);
+     -- Confirma que la actualización se realizó
+     RAISE NOTICE '%', format('Staff ID: %s, columna %s actualizada con valor %s', _staff_id, _columna, _valor);
+ END;
+ $$;
+ ```
+</code></pre>
+<p><strong>Eliminar función</strong></p>
+<pre><code> ```sql
+ DROP FUNCTION IF EXISTS f_actualiza_empleado(integer, text, text);    
+ ```
+</code></pre>
+<p><strong>Ejecución</strong></p>
+<pre><code> ```sql
+ SELECT f_actualiza_empleado(3, 'first_name', 'Pedro Test Función UPDATE');
+ ```
+</code></pre>
+<p>Registro a modificar en el &quot;first_name&quot;
+<img src="image/evalFinalM5_Jorge_Cordova/1731467017593.png" alt="1731467017593"></p>
+<p>Campo modificado con la cadena &quot;Uso de Función UPDATE&quot;
+<img src="image/evalFinalM5_Jorge_Cordova/1731467911415.png" alt="1731467911415"></p>
+</li>
+<li>
+<p><strong>FUNCIÓN 2: Actualiza empleados (staff) pasando parámetros múltiples</strong></p>
+<p>Párámetros:</p>
+<ul>
+<li>_staff_id      : El id del customer, de tipo entero.</li>
+<li>_updates JSONB : Un conjunto de pares clave:valor</li>
+</ul>
+<p>Retorna: Un mensaje de confirmación por consola.</p>
+<pre><code> ```sql
+ -- Versión múltiples campos usando JSONB
+ CREATE OR REPLACE FUNCTION f_actualiza_empleado_multiple(
+     _staff_id INT,
+     _updates JSONB
+ )
+ RETURNS TEXT
+ LANGUAGE plpgsql
+ AS
+ $$
+ DECLARE
+     _columna TEXT;
+     _valor TEXT;
+     _set_clauses TEXT := '';
+ BEGIN
+     -- Invento para armar el SET de una consulta con múltiples columnas dinámicamente
+     FOR _columna, _valor IN SELECT * FROM jsonb_each_text(_updates)
+     LOOP
+         _set_clauses := _set_clauses || format('%I = %L, ', _columna, _valor);
+     END LOOP;
+     -- Se eliminan caracteres como la última coma y espacio extra al formar la consulta
+     _set_clauses := rtrim(_set_clauses, ', ');
+     -- Ejecutamos la actualización para más de 1 columna
+     EXECUTE format('UPDATE staff SET %s WHERE staff_id = %L', _set_clauses, _staff_id);
+     -- Mensaje con confirmación
+     RETURN format('Staff ID %s: columnas actualizadas con los valores %s', _staff_id, _set_clauses);
+ END;
+ $$;
+ ```
+
+ ```sql
+ -- EJECUCIÓN
+ SELECT f_actualiza_empleado_multiple(4, '{&quot;last_name&quot;: &quot;Staff2_Múltiple&quot;, &quot;email&quot;: &quot;juanito_staff2_test_multiple@eval5.com&quot;}');
+ ```
+</code></pre>
+<p>Vista antes de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731468380550.png" alt="1731468380550"></p>
+<p>Ejecutamos la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731468543708.png" alt="1731468543708"></p>
+<p>Vista después de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731468626541.png" alt="1731468626541"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>OPERACIONES DE ACTUALIZACIÓN PARA LA ENTIDAD ACTOR</p>
+<ul>
+<li>
+<p><strong>Actualizar un actor (&quot;UPDATE&quot; ACTOR)</strong></p>
+<p>Al igual que con los anteriores, mostraré 3 formas de actualizar los
+registros de la tabla &quot;ACTOR&quot;.</p>
+<ul>
+<li>Forma simple.</li>
+<li>Función con un parámetro</li>
+<li>Función 2 con múltiples parámetros</li>
+</ul>
+<p>Sintáxis:</p>
+<pre><code> ```sql
+     UPDATE &lt;nombre_tabla&gt;
+     SET &lt;nombre_campo&gt;= &lt;valor_campo&gt;
+     WHERE &lt;condicion&gt;;
+ ```
+</code></pre>
+<p>Campos actualizables o modificables:</p>
+<ul>
+<li>first_name</li>
+<li>last_name</li>
+</ul>
+<p>Primero haremos una actualización simple por el ID del actor. Se modificará
+el nombre del &quot;actor_id&quot; = 204,  de &quot;Dieguito&quot; a &quot;Diego Test Simple&quot;.</p>
+<pre><code> ```sql
+ UPDATE actor
+ SET first_name = 'Diego Test Simple'
+ WHERE actor_id = 204;
+ ```
+</code></pre>
+<p>Vista antes de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731469262646.png" alt="1731469262646"></p>
+<p>Ejecutamos la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731469344202.png" alt="1731469344202"></p>
+<p>Vista después de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731469394340.png" alt="1731469394340"></p>
+</li>
+<li>
+<p><strong>FUNCIÓN 1: Actualiza un actor pasando un parámetro de tipo texto</strong></p>
+<p>Párámetros:</p>
+<ul>
+<li>&quot;_actor_id&quot; : El id del actor, de tipo entero.</li>
+<li>&quot;_columna&quot;  : El nombre de una columna cualquiera, que sea de tipo texto.</li>
+<li>&quot;_valor&quot;    : Una cadena de texto.</li>
+</ul>
+<p>Retorna: Un mensaje de confirmación por consola.</p>
+<p>Excepción: Esta versión sólo es para campos de tipo texto, se puede hacer una
+variante, modificando el tipo de dato por boolean, numeric, integer</p>
+<p>Para evitar esto, que no es tan eficiente, en la siguiente versión, se agregará
+la lógica usando JSONB, para que reciba argumentos múltiples.</p>
+<pre><code> ```sql
+ -- Versión una columna dinámica
+ CREATE OR REPLACE FUNCTION f_actualiza_actor(
+     _actor_id INT,
+     _columna TEXT,
+     _valor TEXT
+ )
+ RETURNS VOID
+ LANGUAGE plpgsql
+ AS $$
+ BEGIN
+     -- Arma la consulta de actualización en forma dinámica
+     EXECUTE format('UPDATE actor SET %I = %L WHERE actor_id = %L', _columna, _valor, _actor_id);
+     
+     -- Confirma que la actualización se realizó
+     RAISE NOTICE '%', format('Actor ID: %s, columna %s actualizada con valor %s', _actor_id, _columna, _valor);
+ END;
+ $$;
+ ```
+</code></pre>
+<p><strong>Eliminar función</strong></p>
+<pre><code> ```sql
+ DROP FUNCTION IF EXISTS f_actualiza_actor(integer, text, text);    
+ ```
+</code></pre>
+<p><strong>Ejecución</strong></p>
+<pre><code> ```sql
+ SELECT f_actualiza_actor(205, 'first_name', 'Jorge Test Función 1 COL');
+ ```
+</code></pre>
+<p>Vista antes de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731505410450.png" alt="1731505410450"></p>
+<p>Ejecutamos la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731505569946.png" alt="1731505569946"></p>
+<p>Vista después de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731505624927.png" alt="1731505624927"></p>
+</li>
+<li>
+<p><strong>FUNCIÓN 2: Actualiza empleados (staff) pasando parámetros múltiples</strong></p>
+<p>Párámetros:</p>
+<ul>
+<li>_actor_id      : El id del actor, de tipo entero.</li>
+<li>_updates JSONB : Un conjunto de pares clave:valor</li>
+</ul>
+<p>Retorna: Un mensaje de confirmación por consola.</p>
+<pre><code> ```sql
+ -- Versión múltiples campos usando JSONB
+ CREATE OR REPLACE FUNCTION f_actualiza_actor_multiple(
+     _actor_id INT,
+     _updates JSONB
+ )
+ RETURNS TEXT
+ LANGUAGE plpgsql
+ AS
+ $$
+ DECLARE
+     _columna TEXT;
+     _valor TEXT;
+     _set_clauses TEXT := '';
+ BEGIN
+     -- Invento para armar el SET de una consulta con múltiples columnas dinámicamente
+     FOR _columna, _valor IN SELECT * FROM jsonb_each_text(_updates)
+     LOOP
+         _set_clauses := _set_clauses || format('%I = %L, ', _columna, _valor);
+     END LOOP;
+     -- Se eliminan caracteres como la última coma y espacio extra al formar la consulta
+     _set_clauses := rtrim(_set_clauses, ', ');
+     -- Ejecutamos la actualización para más de 1 columna
+     EXECUTE format('UPDATE actor SET %s WHERE actor_id = %L', _set_clauses, _actor_id);
+     -- Mensaje con confirmación
+     RETURN format('Actor ID %s: columnas actualizadas con los valores %s', _actor_id, _set_clauses);
+ END;
+ $$;
+ ```
+</code></pre>
+<p><strong>Eliminar función</strong></p>
+<pre><code> ```sql
+ DROP FUNCTION IF EXISTS f_actualiza_actor_multiple(integer, jsonb);    
+ ```
+</code></pre>
+<p><strong>Ejecutar función</strong></p>
+<pre><code> ```sql
+ SELECT f_actualiza_actor_multiple(206, '{&quot;first_name&quot;: &quot;Sra. Cenicienta&quot;, &quot;last_name&quot;: &quot;Actriz5 Test Función Múltiple&quot;}');
+ ```
+</code></pre>
+<p>Vista antes de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731505820694.png" alt="1731505820694"></p>
+<p>Ejecutamos la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731506002841.png" alt="1731506002841"></p>
+<p>Vista después de usar la función
+<img src="image/evalFinalM5_Jorge_Cordova/1731506046211.png" alt="1731506046211"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="consultas-espec%C3%ADficas-queries">CONSULTAS ESPECÍFICAS (QUERIES)</h2>
+<ol>
+<li>
+<p>CLIENTES QUE HAN RENTADO POR AÑO Y MES</p>
+<ul>
+<li>
+<p><strong>Análisis</strong></p>
+<p>Esta consulta debe traer todos los clientes que han rentado películas
+para un determinado mes y año.</p>
+<p>a) Para eficientar las consultas, primero que todo, podemos crear un
+índice en la tabla, sobre el 'campo rental_date', esto mejorará el
+rendimiento de la consulta.</p>
+<pre><code> ```sql
+ CREATE INDEX idx_rental_rental_date ON rental(rental_date);  -- Crea el índice si no existe, se ejecuta 1 vez.
+ ```        
+</code></pre>
+<p>b) Para no iterar entre pruebas y errores, buscando los años y meses
+que si tienen registros, primero, analizamos la cardinalidad de los
+arrendamientos por mes y año. Así podemos determinar qué períodos
+se pueden consultar y organizar mejor una consulta más eficiente.</p>
+<pre><code> ```sql
+ SELECT
+     EXTRACT(YEAR FROM rental_date)  AS año,
+     EXTRACT(MONTH FROM rental_date) AS mes,
+     COUNT(*) AS cantidad_registros
+ FROM
+     rental
+ GROUP BY
+     año, mes
+ ORDER BY
+     año, mes;
+ ```  
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731514600307.png" alt="1731514600307"></p>
+<p>c) Luego, podemos ir armando progresivamente nuestra consulta SQL simple.
+Para el ejemplo, la consulta trae todos los registros de arrendamientos,
+para un año y mes determinado, en este caso 2006 y mes 02, pero falta
+hacerlo para un &quot;customer&quot; específico.</p>
+<pre><code> ```sql    
+ SELECT rental.*, customer.*             -- Selecciona tablas rental y customer
+ FROM rental                             -- Trae los datos de la tabla rental
+ INNER JOIN customer ON rental.customer_id = customer.customer_id -- Une datos usando el id de cliente
+ WHERE DATE_PART('YEAR', rental_date) = 2006 AND    -- Filtra los resultados por año
+     DATE_PART('MONTH', rental_date)  = 02         -- Filtra los resultados por mes
+ ORDER BY rental_date;                              -- Ordena los resultados por fecha
+ ```
+</code></pre>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731536632721.png" alt="1731536632721"></p>
+</li>
+<li>
+<p><strong>Solución</strong></p>
+<p>La forma simple, es hacerlo a través de una consulta en la que indiquemos
+el &quot;customer_id&quot;, un año y mes específicos, de la siguiente manera:</p>
+<pre><code> ```sql 
+ SELECT 
+     rental.rental_id, 
+     rental.rental_date, 
+     rental.customer_id, 
+     customer.first_name, 
+     customer.last_name
+ FROM 
+     rental
+ INNER JOIN 
+     customer ON rental.customer_id = customer.customer_id
+ WHERE 
+     rental.customer_id = 300 
+     AND DATE_PART('YEAR', rental.rental_date) = 2005
+     AND DATE_PART('MONTH', rental.rental_date) = 7
+ ORDER BY 
+     rental.rental_date ASC;
+ ```
+</code></pre>
+<p>Lo cual retornará:
+<img src="image/evalFinalM5_Jorge_Cordova/1731522671513.png" alt="1731522671513"></p>
+<p>Una solución más elaborada, es usar una función que retorne la consulta.
+La siguiente función, &quot;f_listar_por_customer_annio_y_mes()&quot;, permite pasar
+como parámetros, el valor del &quot;customer id&quot;, un año y mes específicos.</p>
+<p><strong>Recibe  :</strong> Valores enteros para el &quot;customer_id&quot;, año y mes.</p>
+<p>Se recomienda hacer algunas consultas previas para conocer el rango de
+fechas y la cardinalidad de los meses para saber si lo que retorna la
+consulta es correcto Y COHERENTE.</p>
+<p><strong>Retorna :</strong> Hace una unión entre &quot;rental&quot; y la tabla &quot;customer&quot;, a
+través del id del cliente y trae los registros de la
+tabla &quot;rental&quot; (arrendamiento de películas) para un año y
+mes específico, para un cliente particular.</p>
+<pre><code> ```sql
+ CREATE OR REPLACE FUNCTION f_listar_por_customer_annio_y_mes(
+         _customer_id INT,
+         _year INT,
+         _month INT
+ )
+ RETURNS TABLE (
+     rental_id INT,
+     rental_date TIMESTAMP WITHOUT TIME ZONE,
+     customer_id INT,
+     first_name character varying,
+     last_name character varying
+ )
+ AS $$
+ BEGIN
+ RETURN QUERY
+ SELECT 
+     r.rental_id,
+     r.rental_date,
+     c.customer_id,
+     c.first_name,
+     c.last_name
+ FROM rental AS r
+ INNER JOIN customer AS c ON r.customer_id = c.customer_id
+ WHERE r.customer_id = _customer_id
+     AND DATE_PART('YEAR', r.rental_date) = _year
+     AND DATE_PART('MONTH', r.rental_date) = _month
+ ORDER BY r.rental_date;
+ END;
+ $$
+ LANGUAGE plpgsql;
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Eliminar la función</strong></p>
+<pre><code> ```sql
+ DROP FUNCTION IF EXISTS f_listar_por_customer_annio_y_mes(integer, integer, integer);
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Ejecutar la función</strong></p>
+<p>Como retorna un json, le anteponemos &quot;* from&quot;, para que desempaquete
+el diccionario y lo muestre como una tabla separada por columnas.</p>
+<pre><code> ```sql
+ SELECT * from f_listar_por_customer_annio_y_mes(300, 2005, 7);
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Vista de la consulta usando la función</strong></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731535785610.png" alt="1731535785610"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>LISTAR TODOS LOS PAGOS ACUMULADOS POR FECHA</p>
+<ul>
+<li>
+<p><strong>Análisis</strong></p>
+<p>Esta consulta debe traer la cantidad y el monto total de pagos por fecha.
+Por ejemplo, el día 1/1/2005, se hicieron 10 ventas, que totalizaron $80,99.</p>
+</li>
+<li>
+<p><strong>Consulta simple</strong></p>
+<p>La forma sencilla de resolverlo es a través de una consulta que agrupe
+por fecha, las ventas del día, esta es la consulta:</p>
+<pre><code> ```sql
+ -- Listar acumulado de payments por fecha
+ SELECT 
+     CAST(payment_date AS DATE) AS &quot;Fecha de Pago&quot;, 
+     COUNT(*) AS &quot;Cantidad de Pagos&quot;,
+     SUM(amount) AS &quot;Acumulado Venta&quot;
+ FROM payment
+ GROUP BY CAST(payment_date AS DATE)
+ ORDER BY CAST(payment_date AS DATE);
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Vista de la consulta simple</strong></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731540938759.png" alt="1731540938759"></p>
+</li>
+<li>
+<p><strong>Function: f_listar_acumulado_ventas_fecha()</strong></p>
+<p>Trataremos de proponer una solución más elaborada, que permita recibir
+parámetros como el año o mes y, por defecto, traiga todas las ventas de
+la tabla &quot;payment&quot;.</p>
+<pre><code> ```sql
+ CREATE OR REPLACE FUNCTION f_listar_acumulado_ventas_fecha(
+ p_year INT DEFAULT NULL
+ )
+ RETURNS TABLE (
+ payment_date DATE,
+ v_qtty_pagos BIGINT,
+ v_amount_pagos NUMERIC
+ )
+ AS $$
+ BEGIN
+ RETURN QUERY
+ SELECT CAST(p.payment_date AS DATE),
+         COUNT(*) AS v_qtty_pagos,
+         SUM(p.amount) AS v_amount_pagos
+ FROM payment AS p
+ WHERE p_year IS NULL OR EXTRACT(YEAR FROM p.payment_date) = p_year
+ GROUP BY CAST(p.payment_date AS DATE)
+ ORDER BY CAST(p.payment_date AS DATE);
+ END;
+ $$
+ LANGUAGE plpgsql;
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Eliminar la función</strong></p>
+<pre><code> ```sql
+ DROP FUNCTION IF EXISTS f_listar_acumulado_ventas_fecha(integer);
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Vista de la consulta usando la función, por defecto toma todo el período</strong></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731545545597.png" alt="1731545545597"></p>
+<p>Si probamos con otros años, por ejemplo año=2006, dentro del rango de
+fechas, se verifica que no hay datos, es decir, la consulta no retorna
+registros.</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731546201877.png" alt="1731546201877"></p>
+<p>Se puede verificar que sólo 2007 tiene datos mirando la tabla o, con una
+consulta como la siguiente, que muestre qué mes y año tiene ventas, para
+el caso, comprobamos que no hay más datos, lo que también se confirma al
+mirar la tabla &quot;payment&quot;:</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731546656602.png" alt="1731546656602"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>LISTAR TODOS LOS FILMS DEL AÑO 2006, QUE TENGAN UNA CALIFICACIÓN MAYOR A 4.0</p>
+<ul>
+<li>
+<p><strong>Análisis</strong></p>
+<p>Esta consulta SQL debe permitir obtener una lista de todas las películas
+del año 2006 que tengan una calificación superior a 4.</p>
+<p>Como no hay una especificación, y para simplificar la vista, asumiremos
+que los campos requeridos son:</p>
+<ul>
+<li>film_id: Identificador único de la película.</li>
+<li>title: Título de la película.</li>
+<li>release_year: Año de lanzamiento de la película.</li>
+<li>rental_rate: Calificación de la película.</li>
+</ul>
+</li>
+<li>
+<p><strong>Consulta simple</strong></p>
+<p>En forma directa y sencilla, generamos un &quot;select&quot; a la tabla &quot;film&quot;,
+indicando los campos que queremos ver, a los que les hemos dado un &quot;nombre
+semnático&quot; o más entendible.</p>
+<pre><code> ```sql
+ SELECT film_id as &quot;id pelicula&quot;, title as &quot;Título del film&quot;, release_year &quot;Año de estreno&quot;, rental_rate &quot;Calificación&quot;
+ FROM film
+ WHERE release_year = 2006
+ AND rental_rate &gt; 4;
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Vista de la consulta simple</strong></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731547616867.png" alt="1731547616867"></p>
+</li>
+<li>
+<p><strong>Function: f_listar_por_annio_y_rate()</strong></p>
+<p>Siguiendo el enfoque metodológico, agregaremos complejidad mediante una
+solución más elaborada, que permita recibir como parámetros el año y la
+calificación, para que que la consulta sea dinámica.</p>
+<pre><code> ```sql
+ CREATE OR REPLACE FUNCTION f_listar_por_annio_y_rate(
+     _release_year INTEGER,
+     _rental_rate NUMERIC
+ )
+ RETURNS TABLE (
+     &quot;Código de la Película&quot; INTEGER,
+     &quot;Año de lanzamiento&quot; INTEGER,
+     &quot;Título de la Película&quot; character varying(255),
+     &quot;Calificación&quot; NUMERIC
+ ) 
+ LANGUAGE plpgsql
+ AS $$
+ BEGIN
+ RETURN QUERY
+ SELECT film_id AS &quot;Código de la Película&quot;, 
+         release_year::INTEGER AS &quot;Año de lanzamiento&quot;, 
+         title AS &quot;Título de la Película&quot;, 
+         rental_rate AS &quot;Calificación&quot;
+ FROM film
+ WHERE release_year = _release_year AND rental_rate &gt; _rental_rate
+ ORDER BY title, rental_rate;
+ END;
+ $$;
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Eliminar la función</strong></p>
+<pre><code> ```sql
+ DROP FUNCTION IF EXISTS f_listar_por_annio_y_rate(integer, numeric);
+ ```
+</code></pre>
+</li>
+<li>
+<p><strong>Vista de la consulta usando la función &quot;f_listar_por_annio_y_rate()&quot;</strong></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731550621093.png" alt="1731550621093"></p>
+<p>Se puede verificar que sólo 2006 tiene datos mirando la tabla o, con una
+consulta que omita el año &quot;2006&quot;, para que los liste todos:</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731551522394.png" alt="1731551522394"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="diccionario-de-datos">DICCIONARIO DE DATOS</h2>
+<p>En la documentación, se ha incluido el diccionario en formato csv, con el nombre
+&quot;diccionario_datos_dvdrental.csv&quot;.</p>
+<ul>
+<li>
+<p><strong>Script de creación del diccionario</strong></p>
+<pre><code>  ```sql
+  SELECT
+      t1.TABLE_NAME AS &quot;Tabla&quot;,
+      t1.COLUMN_NAME AS &quot;Columna&quot;,
+      t1.COLUMN_DEFAULT AS &quot;Valor por defecto&quot;,
+      t1.IS_NULLABLE AS &quot;Acepta nulos&quot;,
+      t1.DATA_TYPE AS &quot;Tipo de dato&quot;,
+      COALESCE(t1.NUMERIC_PRECISION,
+      t1.CHARACTER_MAXIMUM_LENGTH) AS &quot;Longitud de columna&quot;,
+      PG_CATALOG.COL_DESCRIPTION(t2.OID,
+      t1.DTD_IDENTIFIER::int) AS &quot;Descripción columna&quot;,
+      t1.DOMAIN_NAME AS &quot;Nombre dominio&quot;
+  FROM 
+      INFORMATION_SCHEMA.COLUMNS t1
+      INNER JOIN PG_CLASS t2 ON (t2.RELNAME = t1.TABLE_NAME)
+  WHERE 
+      t1.TABLE_SCHEMA = 'public'
+  ORDER BY
+      t1.TABLE_NAME;
+  ```
+</code></pre>
+</li>
+<li>
+<p><strong>Vista de la consulta &quot;Diccionario&quot;</strong></p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731556431685.png" alt="1731556431685"></p>
+</li>
+</ul>
+<h2 id="procedimiento-backup-bbdd">PROCEDIMIENTO BACKUP BBDD</h2>
+<ul>
+<li>
+<p><strong>Consola</strong></p>
+<p>Usando la línea de comandos de CMD o PS, se puede ingresar la siguiente instrucción de pg_dump.</p>
+<pre><code>      ```bash
+      pg_dump -h localhost -U evaluador -F t -f &quot;C:\backup_pgsql\backup_dvdrentalTest_JCordova.tar&quot; dvdrentalTest
+      ```
+</code></pre>
+<p>Significado de las opciones usadas:</p>
+<ul>
+<li><strong>-h localhost:</strong> Especifica el host, en este caso &quot;localhost&quot;.</li>
+<li><strong>-U evaluador:</strong> El nombre de usuario que se utilizará para conectarse a la base de datos. Se creo un superuser &quot;evaluador&quot;</li>
+<li><strong>-F t:</strong> Formato de salida &quot;tar&quot;.</li>
+<li><strong>-f &quot;C:\backup_pgsql\backup_dvdrentalTest_JCordova.tar&quot;:</strong> Ruta y nombre del archivo de respaldo.</li>
+<li><strong>&quot;dvdrentalTest&quot;:</strong> Nombre de la BBDD a respaldar.</li>
+</ul>
+</li>
+<li>
+<p><strong>PgAdmin</strong></p>
+<p>Paso 1: Abrir la interfaz de PgAdmin y posicionar el cursor sobre la bbdd
+que se va a respaldar.</p>
+<p>Paso 2: Hacer click sobre el nombre de la base y se desplegará un menú
+contextual, buscar la opción <strong>&quot;Backup&quot;</strong> y presionar.</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731611515716.png" alt="1731611515716"></p>
+<p>Paso 3: Se abrirá una ventana donde deberá rellenar los campos:</p>
+<ul>
+<li>
+<p>Filename: Un nombre identificatorio para el respaldo, en mi caso,
+&quot;backup_pgadmin_dvdrental_jcordova.tar&quot;, procurando que
+quede en la ruta donde se guardará, en este caso y como
+ejemplo.</p>
+<pre><code>        &quot;C:\backup_pgsql\backup_pgadmin_dvdrental_jcordova.tar&quot;
+</code></pre>
+</li>
+<li>
+<p>Format: Para este caso seleccionaremos &quot;tar&quot;, formato comprimido.</p>
+</li>
+<li>
+<p>Compress ratio: Lo dejaremos en blanco</p>
+</li>
+<li>
+<p>Encoding: De la lista se escogerá UTF-8</p>
+</li>
+<li>
+<p>Number of jobs: No se toca.</p>
+</li>
+<li>
+<p>Role name: Indicamos que usuario tiene privilegios sobre la base. Para
+este caso, hemos creado un usuario distinto, para asegurar
+la trazabilidad e independencia de las acciones que pueda
+realizar, por lo tanto, se escoge &quot;evaluador&quot;.</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731613037567.png" alt="1731613037567"></p>
+<p>Paso 4: Presionar Aceptar y comenzará el proceso, al terminar sale un mensaje:</p>
+<p><img src="image/evalFinalM5_Jorge_Cordova/1731612811640.png" alt="1731612811640"></p>
+<p>Revisar en el explorador de archivos
+<img src="image/evalFinalM5_Jorge_Cordova/1731613109196.png" alt="1731613109196"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="anexos">ANEXOS</h2>
+<ul>
+<li>
+<p><strong>Superusuario</strong></p>
+<p>user: &quot;evaluador&quot;</p>
+<p>pass: 123456</p>
+</li>
+<li>
+<p><strong>Archivos complementarios</strong></p>
+<ul>
+<li>SQL: evalFinalM5.sql</li>
+<li>Diccionario de datos: diccionario_datos_dvdrental.csv</li>
+<li>README: evalFinalM5_Jorge_Cordova.md</li>
+<li>HTML: evalFinalM5.html</li>
+<li>PDF: evalFinalM5.pdf</li>
+<li>Backup consola: backup_dvdrentalTest_JCordova.tar</li>
+<li>Backup PgAdmin: backup_pgadmin_dvdrental_jcordova.tar</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
